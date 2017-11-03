@@ -21,7 +21,8 @@ const defaults = {
   parser: "babylon",
   insertPragma: false,
   requirePragma: false,
-  semi: true
+  semi: true,
+  keepCallArgumentsOnLine: false
 };
 
 const exampleConfig = Object.assign({}, defaults, {

@@ -327,6 +327,12 @@ const detailedOptions = normalizeDetailedOptions({
     type: "boolean",
     category: CATEGORY_OUTPUT,
     description: "Edit files in-place. (Beware!)"
+  },
+  "keep-call-arguments-on-line": {
+    type: "boolean",
+    category: CATEGORY_FORMAT,
+    forwardToApi: true,
+    description: "keepCallArgumentsOnLine"
   }
 });
 
