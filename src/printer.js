@@ -497,7 +497,7 @@ function genericPrintNoParens(path, options, print, args) {
         parts.push("async ");
       }
 
-      if (canPrintParamsWithoutParens(n)) {
+      if (!options.forceArrowFunctionParens && canPrintParamsWithoutParens(n)) {
         parts.push(path.call(print, "params", 0));
       } else {
         parts.push(

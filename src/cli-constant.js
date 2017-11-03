@@ -77,6 +77,12 @@ const categoryOrder = [
  * Note: The options below are sorted alphabetically.
  */
 const detailedOptions = normalizeDetailedOptions({
+  "force-arrow-function-parens": {
+    type: "boolean",
+    category: CATEGORY_FORMAT,
+    forwardToApi: true,
+    description: "write `(x) => x`"
+  },
   "bracket-spacing": {
     type: "boolean",
     category: CATEGORY_FORMAT,

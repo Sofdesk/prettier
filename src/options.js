@@ -7,6 +7,7 @@ const deprecatedConfig = require("./deprecated");
 const supportTable = require("./support").supportTable;
 
 const defaults = {
+  forceArrowFunctionParens: false,
   cursorOffset: -1,
   rangeStart: 0,
   rangeEnd: Infinity,
