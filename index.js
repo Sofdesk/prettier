@@ -9822,6 +9822,8 @@ function printArgumentsList(path, options, print) {
 
       anyArgEmptyLine = true;
       parts.push(",", hardline$2, hardline$2);
+    } else if (options.keepCallArgumentsOnLine) {
+      parts.push(", ");
     } else {
       parts.push(",", line$1);
     }
@@ -9907,14 +9909,26 @@ function printArgumentsList(path, options, print) {
     ]);
   }
 
-  return group$1(
-    concat$2([
+  let callArgs = [];
+  if (options.keepCallArgumentsOnLine) {
+    callArgs = [
+      "(",
+      concat$2(printedArguments),
+      ifBreak$1(shouldPrintComma(options, "all") ? "," : ""),
+      ")"
+    ];
+  }
+  else {
+    callArgs = [
       "(",
       indent$2(concat$2([softline$1, concat$2(printedArguments)])),
       ifBreak$1(shouldPrintComma(options, "all") ? "," : ""),
       softline$1,
       ")"
-    ]),
+    ];
+  }
+  return group$1(
+    concat$2(callArgs),
     { shouldBreak: printedArguments.some(willBreak) || anyArgEmptyLine }
   );
 }
@@ -17352,7 +17366,8 @@ const defaults = {
   parser: "babylon",
   insertPragma: false,
   requirePragma: false,
-  semi: true
+  semi: true,
+  keepCallArgumentsOnLine: false
 };
 
 const exampleConfig = Object.assign({}, defaults, {
